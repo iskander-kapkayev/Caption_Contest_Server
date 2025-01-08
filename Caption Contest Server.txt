@@ -22,3 +22,13 @@ CREATE TABLE captions (
  imageID INTEGER NOT NULL FOREIGN KEY,
  upvotes INTEGER
 );
+
+INSERT INTO users
+VALUES (1, 'iskanderkay', 'password', 'iskander.kapkayev@gmail.com', '2025-01-08', '2025-01-08');
+
+INSERT INTO images
+VALUES 
+(1, '\images\fire_alarm_deserted_island.jpg'),
+(2, '\images\fun_shirt_island.jpg'),
+(3, '\images\visiting_to_island.jpg');
+
