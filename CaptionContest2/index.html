@@ -4,43 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Image with Comments</title>
+  <title>Caption Contest!!</title>
 
 </head>
 <body>
-<div class="container">
-  <div class="image-container">
-    <img src="/images/anime_1.jpg" alt="Sample Image">
-  </div>
+<div class="outer-container">
 
-  <div class="comment-section">
-    <h2>Leave a Comment</h2>
-    <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
-    <button onclick="addComment()">Submit</button>
-  </div>
+  <!-- this section will allow for left side display on the page -->
+  <section class="left-container">
 
-  <div class="comments" id="comments">
-    <h2>Comments</h2>
-  </div>
+    <h1>This is the left side container!</h1>
+
+  </section>
+
+  <!-- this div container will allow for nice centered boxy structure for display -->
+  <section class="center-container">
+
+    <div class="image-container">
+
+      <!-- points to the 3 anime images, with a button allowing the change -->
+      <img src="/images/anime_1.jpg" alt="1st anime image" class="image-cycle">
+      <img src="/images/anime_2.jpg" alt="2nd anime image" class="image-cycle">
+      <img src="/images/anime_3.jpg" alt="3rd anime image" class="image-cycle">
+
+      <!-- these are the buttons to move back and forth -->
+      <button onclick="prevImage()">Prev</button>
+      <button onclick="nextImage()">Next</button>
+
+      <!-- when one of these buttons are clicked, the comment section should also change -->
+    </div>
+
+    <div class="comment-section">
+      <!-- for now, this is the comment section placeholder, where you can type -->
+      <h2>Leave a Comment</h2>
+      <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+      <button onclick="addComment()">Submit</button>
+    </div>
+
+    <div class="comments" id="comments">
+      <!-- for now, this is the comment display section placeholder -->
+      <h2>These are the current comments:</h2>
+    </div>
+  </section>
+
 </div>
 
-<script>
-  function addComment() {
-    const commentInput = document.getElementById('commentInput');
-    const comments = document.getElementById('comments');
-
-    if (commentInput.value.trim() !== "") {
-      const comment = document.createElement('div');
-      comment.className = 'comment';
-      comment.textContent = commentInput.value;
-      comments.appendChild(comment);
-
-      commentInput.value = ""; // Clear the input
-    } else {
-      alert('Please enter a comment before submitting.');
-    }
-  }
-</script>
+<!-- calls in the javascript code -->
+<script src="script.js"></script>
 
 </body>
 </html>
