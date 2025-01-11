@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Image with Comments</title>
+
+</head>
+<body>
+<div class="container">
+  <div class="image-container">
+    <img src="/images/anime_1.jpg" alt="Sample Image">
+  </div>
+
+  <div class="comment-section">
+    <h2>Leave a Comment</h2>
+    <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+    <button onclick="addComment()">Submit</button>
+  </div>
+
+  <div class="comments" id="comments">
+    <h2>Comments</h2>
+  </div>
+</div>
+
+<script>
+  function addComment() {
+    const commentInput = document.getElementById('commentInput');
+    const comments = document.getElementById('comments');
+
+    if (commentInput.value.trim() !== "") {
+      const comment = document.createElement('div');
+      comment.className = 'comment';
+      comment.textContent = commentInput.value;
+      comments.appendChild(comment);
+
+      commentInput.value = ""; // Clear the input
+    } else {
+      alert('Please enter a comment before submitting.');
+    }
+  }
+</script>
+
+</body>
+</html>
