@@ -35,3 +35,14 @@ function prevImage() {
 
 // Initialize the carousel by showing the first image
 showImage(currentIndex);
+
+// scripts for signing in and registering
+    function showRegisterForm() {
+      document.querySelector('.form-container').style.display = 'none'; // Hide Sign In Form
+      document.getElementById('registerForm').style.display = 'block'; // Show Register Form
+    }
+
+    function showSignInForm() {
+      document.querySelector('.form-container').style.display = 'block'; // Show Sign In Form
+      document.getElementById('registerForm').style.display = 'none'; // Hide Register Form
+    }

@@ -1,37 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
   <title>Caption Contest!!</title>
-
 </head>
+
 <body>
-<div class="header-container">
 
-  <h1>This is the header container!</h1>
+  <section class="header-container">
+    
+    <h1>Iskander's Caption Contest!</h1>
 
-  <!-- this div container will allow for nice centered boxy structure for display -->
+    <nav>
+      <ul>
+        <li><a href="./signup.html">Sign Up</a></li>
+        <li><a href="#image-container">Captions</a></li> 
+        <li><a href="#about">About Me</a></li>
+      </ul>
+    </nav>
+
+  </section>
+
+  <!-- this div container will allow for nice centered boxy structure for image display -->
   <section class="image-container">
 
-    <div class="image-container">
-
       <!-- points to the 3 anime images, with a button allowing the change -->
-      <img src="/images/anime_1.jpg" alt="1st anime image" class="image-cycle">
-      <img src="/images/anime_2.jpg" alt="2nd anime image" class="image-cycle">
-      <img src="/images/anime_3.jpg" alt="3rd anime image" class="image-cycle">
+      <img src="./images/anime_1.jpg" alt="1st anime image" class="image-cycle">
+      <img src="./images/anime_2.jpg" alt="2nd anime image" class="image-cycle">
+      <img src="./images/anime_3.jpg" alt="3rd anime image" class="image-cycle">
 
       <!-- these are the buttons to move back and forth -->
       <button onclick="prevImage()">Prev</button>
       <button onclick="nextImage()">Next</button>
 
       <!-- when one of these buttons are clicked, the comment section should also change -->
-    </div>
-
+    
     <div class="comment-section">
       <!-- for now, this is the comment section placeholder, where you can type -->
-      <h2>Leave a Comment</h2>
+      <h2>Sign up to participate</h2>
       <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
       <button onclick="addComment()">Submit</button>
     </div>
@@ -40,12 +48,16 @@
       <!-- for now, this is the comment display section placeholder -->
       <h2>These are the current comments:</h2>
     </div>
+
   </section>
 
-</div>
+  <!-- calls in the javascript code -->
+  <script src="script.js"></script>
 
-<!-- calls in the javascript code -->
-<script src="script.js"></script>
+  <footer id="about">
+    <p>Posted by: Iskander Kay</p>
+    <p>Contact information: never@dontcallme.com</p>
+  </footer>
 
 </body>
 </html>
