@@ -1,3 +1,5 @@
+
+// placeholder for comments at the moment
 function addComment() {
     const commentInput = document.getElementById('commentInput');
     const comments = document.getElementById('comments');
@@ -13,7 +15,7 @@ function addComment() {
     }
 }
 
-// Create a way to cycle through the caption contest images
+// create a way to cycle through the caption contest images
 let currentIndex = 0;
 const images = document.querySelectorAll('.image-cycle');
 
@@ -33,16 +35,15 @@ function prevImage() {
     showImage(currentIndex);
 }
 
-// Initialize the carousel by showing the first image
+// initialize the image cycle by showing the first image
 showImage(currentIndex);
 
 // scripts for signing in and registering
-    function showRegisterForm() {
+function showRegisterForm() {
       document.querySelector('.form-container').style.display = 'none'; // Hide Sign In Form
       document.getElementById('registerForm').style.display = 'block'; // Show Register Form
     }
-
-    function showSignInForm() {
+function showSignInForm() {
       document.querySelector('.form-container').style.display = 'block'; // Show Sign In Form
       document.getElementById('registerForm').style.display = 'none'; // Hide Register Form
     }
