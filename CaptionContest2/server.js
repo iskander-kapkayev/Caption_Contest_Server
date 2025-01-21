@@ -6,6 +6,7 @@
 * hcTqgXvMv1YbXknn
 * */
 
+/*  //this is with pw protections
 require ('dotenv').config();
 const { Pool }  = require ('pg');
 
@@ -21,4 +22,26 @@ export const Client = new Pool({
     database: POSTGRES_DB,
     user: POSTGRES_USER,
     password: POSTGRES_PASSWORD
+});
+*/
+
+// this does not have pw protections
+const { Pool } = require("pg");
+const pool = new Pool({
+    user: 'postgres.ethomcuvxeqhrvycruhf',
+    host: 'aws-0-us-west-1.pooler.supabase.com',
+    database: 'postgres',
+    password: 'hcTqgXvMv1YbXknn',
+    port: 6543,
+    idleTimeoutMillis: 300
+});
+module.exports = pool;
+pool.connect().then(()=>console.log('connected'));
+pool.query('SELECT * FROM users', (err, res) => {
+    if (!err) {
+        console.log(res.rows);
+    } else {
+        console.log(err.message);
+    }
+    pool.end;
 });
