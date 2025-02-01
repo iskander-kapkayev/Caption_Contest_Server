@@ -1,3 +1,5 @@
+// this will work with the database connection script file
+import * as dbq from './db_queries.js';
 
 // placeholder for comments at the moment
 function addComment() {
@@ -14,51 +16,6 @@ function addComment() {
         alert('Please enter a comment before submitting.');
     }
 }
-
-// create a way to cycle through the caption contest images
-let currentIndex = 0;
-const images = document.querySelectorAll('.image-cycle');
-
-function showImage(index) {
-    images.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-    });
-}
-
-function nextImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    showImage(currentIndex);
-}
-
-function prevImage() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage(currentIndex);
-}
-
-// create a way to cycle through the caption contest images using db
-let currentIndex = 0;
-
-
-const images = document.querySelectorAll('.image-cycle');
-
-function showImage(index) {
-    images.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-    });
-}
-
-function nextImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    showImage(currentIndex);
-}
-
-function prevImage() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage(currentIndex);
-}
-
-// initialize the image cycle by showing the first image
-showImage(currentIndex);
 
 // scripts for signing in and registering
 function showRegisterForm() {
