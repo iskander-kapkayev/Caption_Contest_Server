@@ -1,9 +1,0 @@
-{
-  "dev": {
-    "driver": "pg",
-    "user": "your_database_username",
-    "host": "6543",
-    "database": "postgres",
-    "password": "hcTqgXvMv1YbXknn"
-  }
-}
