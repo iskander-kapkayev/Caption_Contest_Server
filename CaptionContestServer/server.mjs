@@ -16,7 +16,6 @@ const pool = new Pool({
     idleTimeoutMillis: 300
 });
 
-
 const corsOptions ={
    origin: '*', 
    credentials: true, //access-control-allow-credentials:true
@@ -35,7 +34,7 @@ async function graballimages() {
 
         let imageURLs = [];
         let query = 'SELECT imageurl FROM images';
-        let result = await pool.query(query);
+        let result = await dbclient.query(query);
 
         for(let i = 0; i < result.rows.length; i++) {
             imageURLs.push(result.rows[i].imageurl);
@@ -79,6 +78,7 @@ async function checkifexists(username, email) {
     }
 }
 
+// function to insert new user into db
 async function insertnewuser(username, password, email) {
 
     const dbclient = await pool.connect();
@@ -125,6 +125,32 @@ async function signin(email, password) {
     }
 }
 
+// this function will query and get all the images available
+async function collectcaptions(imageID) {
+
+    const dbclient = await pool.connect();
+
+    try {
+        dbclient.query('BEGIN')
+
+        let captions = [];
+        let query = 'SELECT captiontext, userid, upvotes FROM captions WHERE imageid = $1';
+        let result = await dbclient.query(query, [imageid]);
+
+        for(let i = 0; i < result.rows.length; i++) {
+            captions.push(result.rows);
+        }
+
+        return imageURLs;
+
+    } catch (e) {
+        await dbclient.query('ROLLBACK')
+        throw e
+    } finally {
+        await dbclient.release();
+    }
+}
+
 // this get request will provide the imageURLs from the database!
 app.get('/graballimages', async (req, res) => {
     let imageURLs = await graballimages();
@@ -151,6 +177,12 @@ app.get('/signin', async (req, res) => {
     const email = req.query.email;
     const password = req.query.password;
     (await signin(email, password)) ? res.send(true): res.send(false) ;
+});
+
+// this get request will grab captions
+app.get('/collectcaptions', async (req, res) => {
+    let captions = await collectcaptions();
+    res.send(captions);
 });
 
 app.listen(port, () => {
