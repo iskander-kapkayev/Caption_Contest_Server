@@ -14,6 +14,7 @@ This section is for image handling.
 Will http request into localhost to retrieve URLs from database.
 Then, function to cycle indices will move between images.
 
+adjusted from localhost to vercel (which now hosts the server connection!)
 */
 
 // create a way to cycle through the caption contest images (let's add more anime images!)
@@ -27,6 +28,10 @@ async function moveToImage() {
     img.src = imageURLs[currentIndex];
     img.alt = `index ${currentIndex}`;
 }
+
+/*
+This section is for user handling.
+*/
 
 // create a way to sign up as a new user
 
@@ -60,6 +65,21 @@ async function signInUser(email, password) {
     (signInCheck) ? true:false;
 }
 
+/*
+This section is for comment switching.
+It connects with the image handler.
+*/
+
+// this function will connect with DB and find appropriate db captions for current image
+// currentIndex + 1 will represent the imageID we are handling
+async function displayCaptions() {
+    let URL = `https://caption-contest-server.vercel.app/collectcaptions?imageid=${currentIndex+1}`;
+    let imageURLs = await fetchDBData(URL); // this will fetch data from http request to grab all images
+    let img = document.getElementById("myImage");
+    currentIndex = (currentIndex + 1) % imageURLs.length;
+    img.src = imageURLs[currentIndex];
+    img.alt = `index ${currentIndex}`;
+}
 
 // placeholder for comments at the moment
 function addComment() {
