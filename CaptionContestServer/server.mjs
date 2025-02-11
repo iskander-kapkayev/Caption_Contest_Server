@@ -171,7 +171,8 @@ async function collectcaptions(imageID) {
 
 // this get request will grab captions
 app.get('/collectcaptions', async (req, res) => {
-    let captions = await collectcaptions();
+    const imageID = req.query.imageid;
+    let captions = await collectcaptions(imageID);
     res.send(captions);
 });
 
