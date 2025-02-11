@@ -74,11 +74,7 @@ It connects with the image handler.
 // currentIndex + 1 will represent the imageID we are handling
 async function displayCaptions() {
     let URL = `https://caption-contest-server.vercel.app/collectcaptions?imageid=${currentIndex+1}`;
-    let imageURLs = await fetchDBData(URL); // this will fetch data from http request to grab all images
-    let img = document.getElementById("myImage");
-    currentIndex = (currentIndex + 1) % imageURLs.length;
-    img.src = imageURLs[currentIndex];
-    img.alt = `index ${currentIndex}`;
+    let captions = await fetchDBData(URL); // this will fetch data from http request to grab all captions
 }
 
 // placeholder for comments at the moment
