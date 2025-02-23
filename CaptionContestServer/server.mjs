@@ -38,7 +38,7 @@ User passwords will be encrypted in the DB.
 async function encryptPassword(password) {
   const iterations = 10; // Defines how much time is needed to calculate a single bcrypt hash.              
   try {                  // The higher the cost factor, the more hashing rounds are done.
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const hashedPassword = await bcrypt.hash(password, iterations);
     return hashedPassword;
   } catch (error) {
     console.error("Error encrypting password:", error);
@@ -55,7 +55,7 @@ async function comparePassword(password, hashedPassword) {
       console.error("Error comparing passwords:", error);
       throw error;
     }
-  }
+}
 
 /*
 This section is for image handling.
