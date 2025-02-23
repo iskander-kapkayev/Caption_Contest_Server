@@ -36,9 +36,9 @@ User passwords will be encrypted in the DB.
 
 // this async function will provide an encryption
 async function encryptPassword(password) {
-  const iterations = 10; // Defines how much time is needed to calculate a single bcrypt hash.              
+  const costFactor = 10; // Defines how much time is needed to calculate a single bcrypt hash.              
   try {                  // The higher the cost factor, the more hashing rounds are done.
-    const hashedPassword = await bcrypt.hash(password, iterations);
+    const hashedPassword = await bcrypt.hash(password, costFactor);
     return hashedPassword;
   } catch (error) {
     console.error("Error encrypting password:", error);
@@ -52,8 +52,8 @@ async function comparePassword(password, hashedPassword) {
       const isMatch = await bcrypt.compare(password, hashedPassword);
       return isMatch;
     } catch (error) {
-      console.error("Error comparing passwords:", error);
-      throw error;
+          console.error("Error comparing passwords:", error);
+          throw error;
     }
 }
 
@@ -125,9 +125,9 @@ async function insertnewuser(username, password, email) {
         await dbclient.query('BEGIN')
         const now = new Date(); // set and convert timestamp
         const timestamp = now.toISOString().slice(0, 19).replace('T', ' ');
-        const encryptedPassword = await encryptPassword(password); // encrypt password
+        const ePassword = await encryptPassword(password); // encrypt password
         let query = 'INSERT INTO users (username, password, email, registeredat, lastlogin) VALUES ($1, $2, $3, $4, $5)';
-        await dbclient.query(query, [username, encryptedPassword, email, timestamp, timestamp]);
+        await dbclient.query(query, [username, ePassword, email, timestamp, timestamp]);
         await dbclient.query('COMMIT')
         return true;
     }
