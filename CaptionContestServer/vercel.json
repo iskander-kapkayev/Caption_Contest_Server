@@ -1,4 +1,7 @@
 {
     "version": 2,
+    "builds": [{
+        "src": "server.mjs",
+    }],
     "routes": [{"src": "/(.*)", "dest": "server.mjs"}]
 }
