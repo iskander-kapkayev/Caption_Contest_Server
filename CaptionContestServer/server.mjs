@@ -1,10 +1,15 @@
-import express from "express";
-import pg from "pg";
-import cors  from "cors";
+import express from "express"; // for transactions
+import pg from "pg"; // for pg connection
+import cors from "cors"; // access control optiona
+import bcrypt from "bcrypt"; //for handling user passwords
+
+/*
+This section is for pg connection handling.
+This code will instantiate the connection to pg server.
+*/
 
 const app = express();
 const port = 3000;
-
 const { Pool } = pg
 
 const pool = new Pool({
@@ -22,7 +27,35 @@ const corsOptions ={
    optionSuccessStatus: 200,
 }
 
-app.use(cors(corsOptions)); //
+app.use(cors(corsOptions));
+
+/*
+This section is for password encryption handling.
+User passwords will be encrypted in the DB.
+*/
+
+// this async function will provide an encryption
+async function encryptPassword(password) {
+  const iterations = 10; // Defines how much time is needed to calculate a single bcrypt hash.              
+  try {                  // The higher the cost factor, the more hashing rounds are done.
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    return hashedPassword;
+  } catch (error) {
+    console.error("Error encrypting password:", error);
+    throw error;
+  }
+}
+
+// this async function will compare hash passwords
+async function comparePassword(password, hashedPassword) {
+    try {
+      const isMatch = await bcrypt.compare(password, hashedPassword);
+      return isMatch;
+    } catch (error) {
+      console.error("Error comparing passwords:", error);
+      throw error;
+    }
+  }
 
 /*
 This section is for image handling.
@@ -60,7 +93,7 @@ This section is for user handling.
 It will consist of user sign ins and sign ups.
 */
 
-// function to check if user exists for sign up
+// function to check if user exists
 async function checkifexists(username, email) {
     // query to check if a user exists
     const dbclient = await pool.connect();
@@ -85,14 +118,16 @@ async function checkifexists(username, email) {
 }
 
 // function to insert new user into db
+// will encrypt passwords
 async function insertnewuser(username, password, email) {
     const dbclient = await pool.connect();
     try {
         await dbclient.query('BEGIN')
         const now = new Date(); // set and convert timestamp
         const timestamp = now.toISOString().slice(0, 19).replace('T', ' ');
+        const encryptedPassword = await encryptPassword(password); // encrypt password
         let query = 'INSERT INTO users (username, password, email, registeredat, lastlogin) VALUES ($1, $2, $3, $4, $5)';
-        await dbclient.query(query, [username, password, email, timestamp, timestamp]);
+        await dbclient.query(query, [username, encryptedPassword, email, timestamp, timestamp]);
         await dbclient.query('COMMIT')
         return true;
     }
@@ -102,10 +137,9 @@ async function insertnewuser(username, password, email) {
     } finally {
         dbclient.release()
     }
-
 }
 
-// function to check if user exists for sign up
+// function to sign in a user based on email and password
 async function signin(email, password) {
     // query to check if a user exists
     const dbclient = await pool.connect();
@@ -113,7 +147,8 @@ async function signin(email, password) {
         await dbclient.query('BEGIN')
         let query = 'SELECT password FROM users WHERE email = $1';
         let result = await dbclient.query(query, [email]);
-        return (result.rows[i].password === password);
+        const isPasswordCorrect = await comparePassword(password, result.rows[i].password); // check hash password against hashed user pw
+        return (isPasswordCorrect);
     } catch (e) {
         await dbclient.query('ROLLBACK')
         throw e
@@ -129,8 +164,8 @@ app.get('/checkifexists', async (req, res) => {
     (await checkifexists(username, email)) ? res.send(true): res.send(false) ;
 });
 
-// this post request will set a new user into the database
-app.post('/insertnewuser', async (req, res) => {
+// this get request will set a new user into the database
+app.get('/insertnewuser', async (req, res) => {
     const username = req.query.username;
     const email = req.query.email;
     const password = req.query.password;
