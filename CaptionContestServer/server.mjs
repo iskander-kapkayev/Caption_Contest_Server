@@ -1,7 +1,7 @@
 import express from "express"; // for transactions
 import pg from "pg"; // for pg connection
 import cors from "cors"; // access control optiona
-import bcrypt from "bcryptjs"; //for handling user passwords
+import bcrypt from "bcrypt.js"; //for handling user passwords
 
 /*
 This section is for pg connection handling.
