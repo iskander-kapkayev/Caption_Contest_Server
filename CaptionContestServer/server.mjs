@@ -2,7 +2,7 @@ import express from "express"; // for transactions
 import pg from "pg"; // for pg connection
 import cors from "cors"; // access control optiona
 import bcrypt from "bcryptjs"; // for handling user passwords
-
+//adsfasdf
 /*
 This section is for pg connection handling.
 This code will instantiate the connection to pg server.
