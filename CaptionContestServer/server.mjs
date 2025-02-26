@@ -36,8 +36,7 @@ User passwords will be encrypted in the DB.
 
 // this async function will provide an encryption
 async function encryptPassword(password) {
-  //const salt = await bcrypt.genSalt(0); // Defines how much time is needed to calculate a single bcrypt hash.              
-  const salt = 0;
+  const salt = await bcrypt.genSalt(0); // Defines how much time is needed to calculate a single bcrypt hash.              
   try {                  // The higher the cost factor, the more hashing rounds are done.
     const hashedPassword = await bcrypt.hash(password, salt);
     return hashedPassword;
@@ -148,7 +147,7 @@ async function signin(email, password) {
         await dbclient.query('BEGIN')
         let query = 'SELECT password FROM users WHERE email = $1';
         let result = await dbclient.query(query, [email]);
-        const isPasswordCorrect = await comparePassword(password, result.rows[i].password); // check hash password against hashed user pw
+        const isPasswordCorrect = await comparePassword(password, result.rows[0].password); // check hash password against hashed user pw
         return (isPasswordCorrect);
     } catch (e) {
         await dbclient.query('ROLLBACK')
