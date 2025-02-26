@@ -169,7 +169,7 @@ app.get('/insertnewuser', async (req, res) => {
     const username = req.query.username;
     const email = req.query.email;
     const password = req.query.password;
-    (await insertnewuser(username, email, password)) ? res.send(true): res.send(false) ;
+    (await insertnewuser(username, password, email)) ? res.send(true): res.send(false) ;
 });
 
 // this get request will check and log in a user
