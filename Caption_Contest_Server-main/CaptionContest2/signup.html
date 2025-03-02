@@ -15,8 +15,8 @@
 
   <!-- Sign In Form -->
   <div class="form-container">
-    <h2>Sign In</h2>
-    <form action="/login" method="POST">
+    <h2>LOGIN</h2>
+    <form id="login">
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
@@ -31,35 +31,35 @@
     </form>
 
     <div class="link">
-      <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register here</a></p>
+      <p>Don't have an account? <a href="#" onclick="showRegisterForm()">REGISTER here</a></p>
     </div>
   </div>
 
 
 
   <!-- Registration Form (initially hidden) -->
-  <div class="form-container" id="registerForm" style="display:none;">
-    <h2>Register</h2>
-    <form action="/register" method="POST">
+  <div class="form-container" id="register" style="display:none;">
+    <h2>REGISTER</h2>
+    <form id="register">
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required>
+        <label for="usernameRegister">Username</label>
+        <input type="text" id="usernameRegister" name="usernameRegister" required>
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <label for="emailRegister">Email</label>
+        <input type="email" id="emailRegister" name="emailRegister" required>
       </div>
       <div class="form-group">
         <label for="passwordRegister">Password</label>
         <input type="password" id="passwordRegister" name="passwordRegister" required>
       </div>
       <div class="form-group">
-        <input type="submit" value="Register">
+        <input type="submit" value="register">
       </div>
     </form>
-
+    
     <div class="link">
-      <p>Already have an account? <a href="#" onclick="showSignInForm()">Sign In here</a></p>
+      <p>Already have an account? <a href="#" onclick="showSignInForm()">LOGIN here</a></p>
     </div>
   </div>
 
