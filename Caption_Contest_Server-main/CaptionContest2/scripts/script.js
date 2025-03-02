@@ -42,12 +42,12 @@ async function signUpCheck(username, email) {
 }
 
 async function signUpRegister(username, email, password) {
-
+    
     // first check that you can sign up
     const uniqueUser = await signUpCheck(username, email);
 
     if (uniqueUser) {
-        let URL = `https://caption-contest-server.vercel.app/insertnewuser?username=${username}&email=${email}&password=${password}`;
+        let URL = `https://caption-contest-server.vercel.app/register?username=${username}&email=${email}&password=${password}`;
         let signUpCheck = await fetchDBData(URL); // this will fetch a success or error for signing up
         (signUpCheck) ? true:false;
     } else {
