@@ -162,58 +162,63 @@ footer p {
 
 /* below starts styling for the sign up page */
 
-  .form-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    
-  }
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  
+}
 
-  .form-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  #registerForm {
-    display: none;
-  }
+#registerForm {
+  display: none;
+}
 
-  .form-group {
-    margin-bottom: 15px;
-  }
+.form-group {
+  margin-bottom: 15px;
+}
 
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
 
-  .form-group input {
-    width: 90%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    text-align: center;
-    
-  }
+.form-group button {
+  background-color: #1eeb36;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+}
 
-  .link {
-    text-align: center;
-    margin-top: 10px;
-  }
+.form-group button:hover {
+  background-color: #32a889;
+}
 
-  .link a {
-    color: #007BFF;
-    text-decoration: none;
-  }
+.link {
+  text-align: center;
+  margin-top: 10px;
+}
 
-  .link a:hover {
-    text-decoration: underline;
-  }
+.link a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}
 
 
