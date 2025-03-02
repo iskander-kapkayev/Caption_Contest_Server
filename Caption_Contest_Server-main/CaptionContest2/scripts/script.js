@@ -41,8 +41,13 @@ async function signUpCheck(username, email) {
     (signUpCheck) ? true:false;
 }
 
-async function signUpRegister(username, email, password) {
+async function signUpRegister() {
     
+    // set form item values
+    const username = document.forms['register']['usernameRegister'].value;
+    const email = document.forms['register']['emailRegister'].value;
+    const password = document.forms['register']['passwordRegister'].value;
+
     // first check that you can sign up
     const uniqueUser = await signUpCheck(username, email);
 
@@ -59,7 +64,12 @@ async function signUpRegister(username, email, password) {
 
 // create a way to sign in as a regular user
 
-async function signInUser(email, password) {
+async function signInUser() {
+
+    // set form item values
+    const email = document.forms['login']['email'].value;
+    const password = document.forms['login']['password'].value;
+
     let URL = `https://caption-contest-server.vercel.app/signin?email=${email}&password=${password}`;
     let signInCheck = await fetchDBData(URL); // this will fetch a success or error for signing up
     (signInCheck) ? true:false;

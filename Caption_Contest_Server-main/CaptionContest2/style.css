@@ -202,19 +202,6 @@ footer p {
     
   }
 
-  .form-group input[type="submit"] {
-    background-color: #1eeb36;
-    color: white;
-    cursor: pointer;
-
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .form-group input[type="submit"]:hover {
-    background-color: #5a6317;
-  }
-
   .link {
     text-align: center;
     margin-top: 10px;
