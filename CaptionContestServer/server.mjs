@@ -161,7 +161,13 @@ async function signin(email, password) {
 app.get('/checkifexists', async (req, res) => {
     const username = req.query.username;
     const email = req.query.email;
-    (await checkifexists(username, email)) ? res.send(true): res.send(false) ;
+
+    // fail if blanks
+    if (username.trim().length === 0 || email.trim().length === 0) {
+        res.send(false);
+    } else {
+        (await checkifexists(username, email)) ? res.send(true): res.send(false);
+    }
 });
 
 // this get request will set a new user into the database
@@ -169,14 +175,26 @@ app.get('/insertnewuser', async (req, res) => {
     const username = req.query.username;
     const email = req.query.email;
     const password = req.query.password;
-    (await insertnewuser(username, password, email)) ? res.send(true): res.send(false) ;
+
+    // fail if blanks
+    if (username.trim().length === 0 || email.trim().length === 0 || password.trim().length === 0) {
+        res.send(false);
+    } else {
+        (await insertnewuser(username, password, email)) ? res.send(true): res.send(false);
+    }
 });
 
 // this get request will check and log in a user
 app.get('/signin', async (req, res) => {
     const email = req.query.email;
     const password = req.query.password;
-    (await signin(email, password)) ? res.send(true): res.send(false) ;
+
+    // fail if blanks
+    if (email.trim().length === 0 || password.trim().length === 0) {
+        res.send(false);
+    } else {
+        (await signin(email, password)) ? res.send(true): res.send(false);
+    }
 });
 
 /*
