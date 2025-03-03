@@ -82,8 +82,8 @@ const regForm = document.forms('register');
 loginForm.onsubmit = function(e) {
 
     // access the desired input through the var we setup
-    cosnt email = loginForm['email'].value;
-    cosnt password = loginForm['password'].value;
+    const email = loginForm['email'].value;
+    const password = loginForm['password'].value;
 
     e.preventDefault();
 
@@ -98,9 +98,9 @@ loginForm.onsubmit = function(e) {
 regForm.onsubmit = function(e) {
 
     // access the desired input through the var we setup
-    cosnt username = regForm['usernameRegister'].value;
-    cosnt email = regForm['emailRegister'].value;
-    cosnt password = regForm['passwordRegister'].value;
+    const username = regForm['usernameRegister'].value;
+    const email = regForm['emailRegister'].value;
+    const password = regForm['passwordRegister'].value;
 
     e.preventDefault();
 
