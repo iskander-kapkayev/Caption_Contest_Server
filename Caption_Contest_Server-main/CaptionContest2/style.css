@@ -193,14 +193,17 @@ footer p {
   margin-bottom: 5px;
 }
 
+.form-group input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
 .form-group input[type="submit"] {
   background-color: #1eeb36;
   color: white;
   border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
   cursor: pointer;
-  width: 100%;
 }
 
 .form-group input[type="submit"]:hover {
