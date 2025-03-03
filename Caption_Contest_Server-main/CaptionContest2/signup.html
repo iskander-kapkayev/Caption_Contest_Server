@@ -45,21 +45,25 @@
 
       const loginForm = document.getElementById['login'];
 
-      // bind the onsubmit property to a function to do some logic
-      loginForm.onsubmit = function(e) {
+      if (loginForm) {
+        // bind the onsubmit property to a function to do some logic
+        loginForm.onsubmit = function(e) {
 
-          // access the desired input through the var we setup
-          const email = loginForm['email'].value;
-          const password = loginForm['password'].value;
+            // access the desired input through the var we setup
+            const email = loginForm['email'].value;
+            const password = loginForm['password'].value;
 
-          e.preventDefault();
+            e.preventDefault();
 
-          // redirect user based on signup attempt
-          if (signInUser(email, password)) {
-              window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-          } else {
-              window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-          }
+            // redirect user based on signup attempt
+            if (signInUser(email, password)) {
+                window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+            } else {
+                window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+            }
+        }
+      } else {
+        console.error('Form element with ID "loginForm" not found.');
       }
 
   </script>
@@ -102,22 +106,25 @@
     // adding onsubmit features for user login and registration forms
 
     const regForm = document.getElementById['register'];
+    if (regForm) {
+      regForm.onsubmit = function(e) {
 
-    regForm.onsubmit = function(e) {
+          // access the desired input through the var we setup
+          const username = regForm['usernameRegister'].value;
+          const email = regForm['emailRegister'].value;
+          const password = regForm['passwordRegister'].value;
 
-        // access the desired input through the var we setup
-        const username = regForm['usernameRegister'].value;
-        const email = regForm['emailRegister'].value;
-        const password = regForm['passwordRegister'].value;
+          e.preventDefault();
 
-        e.preventDefault();
-
-        // redirect user based on signup attempt
-        if (signUpRegister(username, email, password)) {
-            window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-        } else {
-            window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-        }
+          // redirect user based on signup attempt
+          if (signUpRegister(username, email, password)) {
+              window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+          } else {
+              window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+          }
+      }
+    } else {
+      console.error('Form element with ID "regForm" not found.');
     }
 
   </script>
