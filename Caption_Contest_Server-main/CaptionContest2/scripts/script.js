@@ -76,39 +76,39 @@ async function signInUser() {
 const loginForm = document.getElementById('login');
 
 loginForm.addEventListener('submit', function(event) {
-  event.preventDefault(); // prevent the default form submission
+    event.preventDefault(); // prevent the default form submission
 
-  const formData = new FormData(loginForm);
-  const data = {};
-  formData.forEach((value, key) => {
-    data[key] = value;
-  });
+    const formData = new FormData(loginForm);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
 
-  // redirect user based on signup attempt
-  if (signUpRegister(data[email], data[password])) {
-    window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-  } else {
-    window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-  }
+    // redirect user based on signup attempt
+    if (signUpRegister(data[email], data[password])) {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+    } else {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+    }
 });
 
 const registrationForm = document.getElementById('register');
 
 registrationForm.addEventListener('submit', function(event) {
-  event.preventDefault(); // prevent the default form submission
+    event.preventDefault(); // prevent the default form submission
 
-  const formData = new FormData(registrationForm);
-  const data = {};
-  formData.forEach((value, key) => {
-    data[key] = value;
-  });
+    const formData = new FormData(registrationForm);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
 
-  // redirect user based on signup attempt
-  if (signUpRegister(data[usernameRegister], data[emailRegister], data[passwordRegister])) {
-    window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-  } else {
-    window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-  }
+    // redirect user based on signup attempt
+    if (signUpRegister(data[usernameRegister], data[emailRegister], data[passwordRegister])) {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+    } else {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+    }
 });
 
 /*
