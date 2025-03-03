@@ -35,21 +35,16 @@ Check if user exists then
 Grab form data to sign in or register.
 */
 
-// create a way to sign up as a new user
-
+// checks for a username/email that already exists
 async function signUpCheck(username, email) {
     let URL = `https://caption-contest-server.vercel.app/checkifexists?username=${username}&email=${email}`;
     let signUpCheck = await fetchDBData(URL); // this will fetch a success or error for signing up
     (signUpCheck) ? true:false;
 }
 
-async function signUpRegister() {
+// registers a new user
+async function signUpRegister(username, email, password) {
     
-    // set form item values
-    const username = document.forms['register']['usernameRegister'].value;
-    const email = document.forms['register']['emailRegister'].value;
-    const password = document.forms['register']['passwordRegister'].value;
-
     // first check that you can sign up
     const uniqueUser = await signUpCheck(username, email);
 
@@ -65,7 +60,6 @@ async function signUpRegister() {
 }
 
 // create a way to sign in as a regular user
-
 async function signInUser() {
 
     // set form item values
@@ -76,6 +70,46 @@ async function signInUser() {
     let signInCheck = await fetchDBData(URL); // this will fetch a success or error for signing up
     (signInCheck) ? true:false;
 }
+
+// adding event listeners for user login and registration forms
+
+const loginForm = document.getElementById('login');
+
+loginForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // prevent the default form submission
+
+  const formData = new FormData(loginForm);
+  const data = {};
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
+
+  // redirect user based on signup attempt
+  if (signUpRegister(data[email], data[password])) {
+    window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+  } else {
+    window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+  }
+});
+
+const registrationForm = document.getElementById('register');
+
+registrationForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // prevent the default form submission
+
+  const formData = new FormData(registrationForm);
+  const data = {};
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
+
+  // redirect user based on signup attempt
+  if (signUpRegister(data[usernameRegister], data[emailRegister], data[passwordRegister])) {
+    window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+  } else {
+    window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+  }
+});
 
 /*
 This section is for comment switching.
