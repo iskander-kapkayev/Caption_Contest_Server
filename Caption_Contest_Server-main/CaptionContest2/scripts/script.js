@@ -74,35 +74,18 @@ async function signInUser(email, password) {
 }
 
 // adding onsubmit features for user login and registration forms
-/*
-const loginForm = document.getElementById['login'];
+
 const regForm = document.getElementById['register'];
+if (regForm) {
+  regForm.onsubmit = function(e) {
 
-// bind the onsubmit property to a function to do some logic
-loginForm.onsubmit = function(e) {
-
-    // access the desired input through the var we setup
-    const email = loginForm['email'].value;
-    const password = loginForm['password'].value;
-
-    e.preventDefault();
-
-    // redirect user based on signup attempt
-    if (signInUser(email, password)) {
-        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-    } else {
-        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-    }
-}
-
-regForm.onsubmit = function(e) {
+    e.preventDefault(); // stops submit from redirection
 
     // access the desired input through the var we setup
     const username = regForm['usernameRegister'].value;
     const email = regForm['emailRegister'].value;
     const password = regForm['passwordRegister'].value;
 
-    e.preventDefault();
 
     // redirect user based on signup attempt
     if (signUpRegister(username, email, password)) {
@@ -110,8 +93,35 @@ regForm.onsubmit = function(e) {
     } else {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
     }
+  }
+} else {
+  console.log('Form element with ID "regForm" not found.');
 }
-*/
+
+const loginForm = document.getElementById['login'];
+
+if (loginForm) {
+  // bind the onsubmit property to a function to do some logic
+  loginForm.onsubmit = function(e) {
+    
+    e.preventDefault(); // stops submit from redirection
+
+    // access the desired input through the var we setup
+    const email = loginForm['email'].value;
+    const password = loginForm['password'].value;
+
+    // redirect user based on signup attempt
+    if (signInUser(email, password)) {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+    } else {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+    }
+
+  }
+} else {
+  console.log('Form element with ID "loginForm" not found.');
+}
+
 /*
 This section is for comment switching.
 It connects with the image handler.

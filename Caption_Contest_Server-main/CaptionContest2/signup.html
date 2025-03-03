@@ -39,37 +39,6 @@
     </div>
   </div>
 
-  <script>
-
-      // adding onsubmit features for user login and registration forms
-
-      const loginForm = document.getElementById['login'];
-
-      if (loginForm) {
-        // bind the onsubmit property to a function to do some logic
-        loginForm.onsubmit = function(e) {
-          
-          e.preventDefault(); // stops submit from redirection
-
-          // access the desired input through the var we setup
-          const email = loginForm['email'].value;
-          const password = loginForm['password'].value;
-
-          // redirect user based on signup attempt
-          if (signInUser(email, password)) {
-              window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-          } else {
-              window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-          }
-
-        }
-      } else {
-        console.log('Form element with ID "loginForm" not found.');
-      }
-
-  </script>
-
-
 
   <!-- Registration Form (initially hidden) -->
   <div class="form-container" id="registerForm" style="display:none;">
@@ -101,35 +70,6 @@
       <p>Already have an account? <a href="#" onclick="showSignInForm()">LOGIN here</a></p>
     </div>
   </div>
-
-  <script>
-
-    // adding onsubmit features for user login and registration forms
-
-    const regForm = document.getElementById['register'];
-    if (regForm) {
-      regForm.onsubmit = function(e) {
-
-        e.preventDefault(); // stops submit from redirection
-
-        // access the desired input through the var we setup
-        const username = regForm['usernameRegister'].value;
-        const email = regForm['emailRegister'].value;
-        const password = regForm['passwordRegister'].value;
-
-
-        // redirect user based on signup attempt
-        if (signUpRegister(username, email, password)) {
-            window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-        } else {
-            window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-        }
-      }
-    } else {
-      console.log('Form element with ID "regForm" not found.');
-    }
-
-  </script>
 
 </body>
 </html>
