@@ -75,8 +75,8 @@ async function signInUser(email, password) {
 
 // adding onsubmit features for user login and registration forms
 
-const loginForm = document.forms('login');
-const regForm = document.forms('register');
+const loginForm = document.forms['login'];
+const regForm = document.forms['register'];
 
 // bind the onsubmit property to a function to do some logic
 loginForm.onsubmit = function(e) {
