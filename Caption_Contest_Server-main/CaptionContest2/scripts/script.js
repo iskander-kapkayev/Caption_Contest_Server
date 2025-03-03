@@ -60,56 +60,57 @@ async function signUpRegister(username, email, password) {
 }
 
 // create a way to sign in as a regular user
-async function signInUser() {
+async function signInUser(email, password) {
 
     // set form item values
+    /*
     const email = document.forms['login']['email'].value;
     const password = document.forms['login']['password'].value;
+    */
 
     let URL = `https://caption-contest-server.vercel.app/signin?email=${email}&password=${password}`;
     let signInCheck = await fetchDBData(URL); // this will fetch a success or error for signing up
     (signInCheck) ? true:false;
 }
 
-// adding event listeners for user login and registration forms
+// adding onsubmit features for user login and registration forms
 
-const loginForm = document.getElementById('login');
+const loginForm = document.forms('login');
+const regForm = document.forms('register');
 
-loginForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // prevent the default form submission
+// bind the onsubmit property to a function to do some logic
+loginForm.onsubmit = function(e) {
 
-    const formData = new FormData(loginForm);
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
+    // access the desired input through the var we setup
+    cosnt email = loginForm['email'].value;
+    cosnt password = loginForm['password'].value;
+
+    e.preventDefault();
 
     // redirect user based on signup attempt
-    if (signUpRegister(data[email], data[password])) {
+    if (signInUser(email, password)) {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/";
     } else {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
     }
-});
+}
 
-const registrationForm = document.getElementById('register');
+regForm.onsubmit = function(e) {
 
-registrationForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // prevent the default form submission
+    // access the desired input through the var we setup
+    cosnt username = regForm['usernameRegister'].value;
+    cosnt email = regForm['emailRegister'].value;
+    cosnt password = regForm['passwordRegister'].value;
 
-    const formData = new FormData(registrationForm);
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
+    e.preventDefault();
 
     // redirect user based on signup attempt
-    if (signUpRegister(data[usernameRegister], data[emailRegister], data[passwordRegister])) {
+    if (signUpRegister(username, email, password)) {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/";
     } else {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
     }
-});
+}
 
 /*
 This section is for comment switching.
