@@ -193,7 +193,7 @@ footer p {
   margin-bottom: 5px;
 }
 
-.form-group button {
+.form-group input {
   background-color: #1eeb36;
   color: white;
   border: none;
@@ -203,7 +203,7 @@ footer p {
   width: 100%;
 }
 
-.form-group button:hover {
+.form-group input:hover {
   background-color: #32a889;
 }
 
