@@ -31,6 +31,8 @@ async function moveToImage() {
 
 /*
 This section is for user handling.
+Check if user exists then
+Grab form data to sign in or register.
 */
 
 // create a way to sign up as a new user
@@ -103,7 +105,11 @@ function addComment() {
     }
 }
 
-// scripts for signing in and registering
+/*
+The functions below let the user switch 
+between sign in and registration
+*/
+
 function showRegisterForm() {
       document.querySelector('.form-container').style.display = 'none'; // Hide Sign In Form
       document.getElementById('registerForm').style.display = 'block'; // Show Register Form

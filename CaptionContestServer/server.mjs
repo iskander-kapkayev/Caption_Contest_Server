@@ -36,7 +36,7 @@ User passwords will be encrypted in the DB.
 
 // this async function will provide an encryption
 async function encryptPassword(password) {
-  const salt = await bcrypt.genSalt(0); // Defines how much time is needed to calculate a single bcrypt hash.              
+  const salt = await bcrypt.genSalt(10); // Defines how much time is needed to calculate a single bcrypt hash.              
   try {                  // The higher the cost factor, the more hashing rounds are done.
     const hashedPassword = await bcrypt.hash(password, salt);
     return hashedPassword;
