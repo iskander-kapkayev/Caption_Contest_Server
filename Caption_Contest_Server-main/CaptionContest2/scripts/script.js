@@ -74,7 +74,7 @@ async function signInUser(email, password) {
 }
 
 // adding onsubmit features for user login and registration forms
-
+/*
 const loginForm = document.getElementById['login'];
 const regForm = document.getElementById['register'];
 
@@ -111,7 +111,7 @@ regForm.onsubmit = function(e) {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
     }
 }
-
+*/
 /*
 This section is for comment switching.
 It connects with the image handler.

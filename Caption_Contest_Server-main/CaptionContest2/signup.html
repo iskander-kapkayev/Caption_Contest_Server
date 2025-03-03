@@ -39,6 +39,31 @@
     </div>
   </div>
 
+  <script>
+
+      // adding onsubmit features for user login and registration forms
+
+      const loginForm = document.getElementById['login'];
+
+      // bind the onsubmit property to a function to do some logic
+      loginForm.onsubmit = function(e) {
+
+          // access the desired input through the var we setup
+          const email = loginForm['email'].value;
+          const password = loginForm['password'].value;
+
+          e.preventDefault();
+
+          // redirect user based on signup attempt
+          if (signInUser(email, password)) {
+              window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+          } else {
+              window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+          }
+      }
+
+  </script>
+
 
 
   <!-- Registration Form (initially hidden) -->
@@ -71,6 +96,31 @@
       <p>Already have an account? <a href="#" onclick="showSignInForm()">LOGIN here</a></p>
     </div>
   </div>
+
+  <script>
+
+    // adding onsubmit features for user login and registration forms
+
+    const regForm = document.getElementById['register'];
+
+    regForm.onsubmit = function(e) {
+
+        // access the desired input through the var we setup
+        const username = regForm['usernameRegister'].value;
+        const email = regForm['emailRegister'].value;
+        const password = regForm['passwordRegister'].value;
+
+        e.preventDefault();
+
+        // redirect user based on signup attempt
+        if (signUpRegister(username, email, password)) {
+            window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+        } else {
+            window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+        }
+    }
+
+  </script>
 
 </body>
 </html>
