@@ -199,7 +199,7 @@ footer p {
   width: 90%;
 }
 
-.form-group input[type="submit"] {
+.form-group button {
   background-color: #1eeb36;
   color: white;
   border: none;
@@ -207,7 +207,7 @@ footer p {
   width: 100%;
 }
 
-.form-group input[type="submit"]:hover {
+.form-group button:hover {
   background-color: #32a889;
 }
 
