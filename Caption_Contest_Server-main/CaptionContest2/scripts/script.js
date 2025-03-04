@@ -73,13 +73,15 @@ async function signInUser(email, password) {
     (signInCheck) ? true:false;
 }
 
-// adding onsubmit features for user login and registration forms
+// adding event listeners for user login and registration forms
 
+// set reg and login forms
 const regForm = document.getElementById['register'];
-if (regForm) {
-  regForm.onsubmit = function(e) {
+const loginForm = document.getElementById['login'];
 
-    e.preventDefault(); // stops submit from redirection
+// what to do on reg submit
+function forRegSubmit(event) {
+    event.preventDefault(); // stops submit from redirection
 
     // access the desired input through the var we setup
     const username = regForm['usernameRegister'].value;
@@ -93,18 +95,12 @@ if (regForm) {
     } else {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
     }
-  }
-} else {
-  console.log('Form element with ID "regForm" not found.');
 }
 
-const loginForm = document.getElementById['login'];
-
-if (loginForm) {
-  // bind the onsubmit property to a function to do some logic
-  loginForm.onsubmit = function(e) {
+// what to do on login submit
+function forLoginSubmit(event) {
     
-    e.preventDefault(); // stops submit from redirection
+    event.preventDefault(); // stops submit from redirection
 
     // access the desired input through the var we setup
     const email = loginForm['email'].value;
@@ -116,11 +112,11 @@ if (loginForm) {
     } else {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
     }
-
-  }
-} else {
-  console.log('Form element with ID "loginForm" not found.');
 }
+
+// event listeners below
+regForm.addEventListener("submit", forRegSubmit);
+loginForm.addEventListener("submit", forLoginSubmit);
 
 /*
 This section is for comment switching.
