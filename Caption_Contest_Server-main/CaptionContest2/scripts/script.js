@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
         }
     }
-}
+});
 
 
 
