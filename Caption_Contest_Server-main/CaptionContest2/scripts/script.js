@@ -74,7 +74,7 @@ async function signInUser(email, password) {
 }
 
 // adding event listeners for user login and registration forms
-
+/*
 // set reg and login forms
 const regForm = document.getElementById['registerFormData'];
 const loginForm = document.getElementById['login'];
@@ -117,6 +117,38 @@ function forLoginSubmit(event) {
 // event listeners below
 regForm.addEventListener("submit", forRegSubmit);
 loginForm.addEventListener("submit", forLoginSubmit);
+*/
+
+// onclick buttons for login/sign up
+
+async function forReg() {
+
+    // access the the username, email and pass
+    const username = document.getElementById['usernameReg'].value;
+    const email = document.getElementById['emailReg'].value;
+    const password = document.getElementById['passwordReg'].value;
+
+    // redirect user based on signup attempt
+    if (await signUpRegister(username, email, password)) {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+    } else {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+    }
+}
+
+async function forLogin() {
+
+    // access the email and pass
+    const email = document.getElementById['email'].value;
+    const password = document.getElementById['password'].value;
+
+    // redirect user based on sign in attempt
+    if (await signInUser(email, password)) {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+    } else {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+    }
+}
 
 /*
 This section is for comment switching.
