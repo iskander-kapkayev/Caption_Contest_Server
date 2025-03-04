@@ -121,7 +121,7 @@ loginForm.addEventListener("submit", forLoginSubmit);
 
 // onclick buttons for login/sign up
 
-async function forReg() {
+function forReg() {
 
     // access the the username, email and pass
     const username = document.getElementById['usernameReg'].value;
@@ -129,21 +129,21 @@ async function forReg() {
     const password = document.getElementById['passwordReg'].value;
 
     // redirect user based on signup attempt
-    if (await signUpRegister(username, email, password)) {
+    if (signUpRegister(username, email, password)) {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/";
     } else {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
     }
 }
 
-async function forLogin() {
+function forLogin() {
 
     // access the email and pass
     const email = document.getElementById['email'].value;
     const password = document.getElementById['password'].value;
 
     // redirect user based on sign in attempt
-    if (await signInUser(email, password)) {
+    if (signInUser(email, password)) {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/";
     } else {
         window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
