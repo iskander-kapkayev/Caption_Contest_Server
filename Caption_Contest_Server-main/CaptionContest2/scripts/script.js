@@ -76,7 +76,7 @@ async function signInUser(email, password) {
 // adding event listeners for user login and registration forms
 
 // set reg and login forms
-const regForm = document.getElementById['register'];
+const regForm = document.getElementById['registerFormData'];
 const loginForm = document.getElementById['login'];
 
 // what to do on reg submit
