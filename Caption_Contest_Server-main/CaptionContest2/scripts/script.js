@@ -121,34 +121,39 @@ loginForm.addEventListener("submit", forLoginSubmit);
 
 // onclick buttons for login/sign up
 
-function forReg() {
+document.addEventListener("DOMContentLoaded", function() {
 
-    // access the the username, email and pass
-    const username = document.getElementById['usernameReg'].value;
-    const email = document.getElementById['emailReg'].value;
-    const password = document.getElementById['passwordReg'].value;
+    document.getElementById("regButton").onclick = function() {
 
-    // redirect user based on signup attempt
-    if (signUpRegister(username, email, password)) {
-        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-    } else {
-        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+        // access the the username, email and pass
+        const username = document.getElementById['usernameReg'].value;
+        const email = document.getElementById['emailReg'].value;
+        const password = document.getElementById['passwordReg'].value;
+
+        // redirect user based on signup attempt
+        if (signUpRegister(username, email, password)) {
+            window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+        } else {
+            window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+        }
+    }
+
+    document.getElementById("loginButton").onclick = function() {
+
+        // access the email and pass
+        const email = document.getElementById['email'].value;
+        const password = document.getElementById['password'].value;
+    
+        // redirect user based on sign in attempt
+        if (signInUser(email, password)) {
+            window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+        } else {
+            window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+        }
     }
 }
 
-function forLogin() {
 
-    // access the email and pass
-    const email = document.getElementById['email'].value;
-    const password = document.getElementById['password'].value;
-
-    // redirect user based on sign in attempt
-    if (signInUser(email, password)) {
-        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-    } else {
-        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-    }
-}
 
 /*
 This section is for comment switching.
