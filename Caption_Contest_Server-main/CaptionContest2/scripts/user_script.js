@@ -102,14 +102,18 @@ loginForm.addEventListener("submit", forLoginSubmit);
 
 // onclick buttons for login/sign up
 
+console.log(document.getElementById("regButton"));
+
 document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("regButton").onclick = function() {
+        
+
 
         // access the the username, email and pass
-        const username = document.getElementById["usernameReg"].value;
-        const email = document.getElementById["emailReg"].value;
-        const password = document.getElementById["passwordReg"].value;
+        const username = document.getElementById("usernameReg").value;
+        const email = document.getElementById("emailReg").value;
+        const password = document.getElementById("passwordReg").value;
 
         // redirect user based on signup attempt
         if (signUpRegister(username, email, password)) {
