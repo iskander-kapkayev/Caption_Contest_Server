@@ -35,7 +35,7 @@ async function signUpRegister(username, email, password) {
         (signUpCheck) ? true:false;
     } else {
         // if you can't sign up, then abort and alert console
-        console.log('This username or email is already in use and thus cant be used');
+        console.log("This username or email is already in use and thus cant be used");
         return false;
     }
 }
@@ -107,9 +107,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("regButton").onclick = function() {
 
         // access the the username, email and pass
-        const username = document.getElementById['usernameReg'].value;
-        const email = document.getElementById['emailReg'].value;
-        const password = document.getElementById['passwordReg'].value;
+        const username = document.getElementById["usernameReg"].value;
+        const email = document.getElementById["emailReg"].value;
+        const password = document.getElementById["passwordReg"].value;
 
         // redirect user based on signup attempt
         if (signUpRegister(username, email, password)) {
@@ -122,8 +122,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("loginButton").onclick = function() {
 
         // access the email and pass
-        const email = document.getElementById['email'].value;
-        const password = document.getElementById['password'].value;
+        const email = document.getElementById["email"].value;
+        const password = document.getElementById["password"].value;
     
         // redirect user based on sign in attempt
         if (signInUser(email, password)) {
@@ -140,10 +140,10 @@ between sign in and registration
 */
 
 function showRegisterForm() {
-    document.querySelector('.form-container').style.display = 'none'; // Hide Sign In Form
-    document.getElementById('registerForm').style.display = 'block'; // Show Register Form
+    document.querySelector(".form-container").style.display = "none"; // Hide Sign In Form
+    document.getElementById("registerForm").style.display = "block"; // Show Register Form
   }
 function showSignInForm() {
-    document.querySelector('.form-container').style.display = 'block'; // Show Sign In Form
-    document.getElementById('registerForm').style.display = 'none'; // Hide Register Form
+    document.querySelector(".form-container").style.display = "block"; // Show Sign In Form
+    document.getElementById("registerForm").style.display = "none"; // Hide Register Form
   }
