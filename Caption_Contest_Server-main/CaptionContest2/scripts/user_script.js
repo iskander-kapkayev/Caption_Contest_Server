@@ -133,3 +133,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
+/*
+The functions below let the user switch 
+between sign in and registration
+*/
+
+function showRegisterForm() {
+    document.querySelector('.form-container').style.display = 'none'; // Hide Sign In Form
+    document.getElementById('registerForm').style.display = 'block'; // Show Register Form
+  }
+function showSignInForm() {
+    document.querySelector('.form-container').style.display = 'block'; // Show Sign In Form
+    document.getElementById('registerForm').style.display = 'none'; // Hide Register Form
+  }
