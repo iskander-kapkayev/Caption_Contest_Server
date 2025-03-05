@@ -74,10 +74,10 @@ async function signInUser(email, password) {
 }
 
 // adding event listeners for user login and registration forms
-/*
+
 // set reg and login forms
 const regForm = document.getElementById('registerFormData');
-const loginForm = document.getElementById('login');
+const loginForm = document.getElementById('loginFormData');
 
 // what to do on reg submit
 function forRegSubmit(event) {
@@ -117,7 +117,6 @@ function forLoginSubmit(event) {
 // event listeners below
 regForm.addEventListener("submit", forRegSubmit);
 loginForm.addEventListener("submit", forLoginSubmit);
-*/
 
 // onclick buttons for login/sign up
 /*
