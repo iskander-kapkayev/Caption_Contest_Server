@@ -59,6 +59,9 @@ async function signInUser(email, password) {
 const regForm = document.getElementById('registerFormData');
 const loginForm = document.getElementById('loginFormData');
 
+console.log(document.getElementById('registerFormData'));
+console.log(document.getElementById('loginFormData'));
+
 // what to do on reg submit
 async function forRegSubmit(event) {
     event.preventDefault(); // stops submit from redirection
