@@ -79,13 +79,14 @@ Function for use by sign up page.
 
 // what to do on reg submit
 async function forRegSubmit(event) {
-    event.preventDefault(); // stops submit from redirection
-
+    //event.preventDefault(); // stops submit from redirection
+    console.log("im in the forRegFunction");
     // access the desired input through the var we setup
     const username = regForm('usernameRegister').value;
     const email = regForm('emailRegister').value;
     const password = regForm('passwordRegister').value;
 
+    console.log(username, email, password);
 
     // redirect user based on signup attempt
     if (await signUpRegister(username, email, password)) {
@@ -100,7 +101,7 @@ async function forRegSubmit(event) {
 // what to do on login submit
 async function forLoginSubmit(event) {
     
-    event.preventDefault(); // stops submit from redirection
+    //event.preventDefault(); // stops submit from redirection
 
     // access the desired input through the var we setup
     const email = loginForm('email').value;
@@ -118,24 +119,15 @@ async function forLoginSubmit(event) {
 
 if (window.location.href === "https://caption-contest-server-35n2.vercel.app/signup.html") {
 
-    console.log("im in the webpage now");
-
     document.addEventListener("DOMContentLoaded", function() {
         // set reg and login forms
         const regForm = document.getElementById('registerFormData');
         const loginForm = document.getElementById('loginFormData');
 
-        console.log(document.getElementById('registerFormData'));
-        console.log(document.getElementById('loginFormData'));
-
         // event listeners below
-        if (regForm) {
-            regForm.addEventListener("button", forRegSubmit);
-        }
-        if (loginForm) {
-            loginForm.addEventListener("button", forLoginSubmit);
-        }
-
+        regForm.addEventListener("buttonReg", forRegSubmit);
+        loginForm.addEventListener("buttonLogin", forLoginSubmit);
+    
     });
 } // only runs on the signup page script
 
