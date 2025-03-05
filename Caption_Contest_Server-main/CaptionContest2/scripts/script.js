@@ -78,11 +78,11 @@ async function signInUser(email, password) {
 if (window.location.href === "https://caption-contest-server-35n2.vercel.app/signup.html") {
 
     // set reg and login forms
-    const regForm = document.forms('registerFormData');
-    const loginForm = document.forms('loginFormData');
+    const regForm = document.getElementById('registerFormData');
+    const loginForm = document.getElementById('loginFormData');
 
     console.log(document.getElementById('registerFormData'));
-    console.log(document.forms('loginFormData'));
+    console.log(document.getElementById('loginFormData'));
 
     // what to do on reg submit
     async function forRegSubmit(event) {
@@ -123,10 +123,10 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
 
     // event listeners below
     if (regForm) {
-        regForm.addEventListener("submitReg", forRegSubmit);
+        regForm.addEventListener("button", forRegSubmit);
     }
     if (loginForm) {
-        loginForm.addEventListener("submitLogin", forLoginSubmit);
+        loginForm.addEventListener("button", forLoginSubmit);
     }
 } // only runs on the signup page script
 
