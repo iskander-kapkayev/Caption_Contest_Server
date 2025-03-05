@@ -96,8 +96,10 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
 
         // redirect user based on signup attempt
         if (signUpRegister(username, email, password)) {
+            console.log("in sign up register")
             window.location.href = "https://caption-contest-server-35n2.vercel.app/";
         } else {
+            console.log("sign up register failed")
             window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
         }
     }
