@@ -125,8 +125,8 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
         const loginForm = document.getElementById('loginFormData');
 
         // event listeners below
-        regForm.addEventListener("buttonReg", forRegSubmit);
-        loginForm.addEventListener("buttonLogin", forLoginSubmit);
+        regForm.addEventListener("button", forRegSubmit);
+        loginForm.addEventListener("button", forLoginSubmit);
     
     });
 } // only runs on the signup page script
