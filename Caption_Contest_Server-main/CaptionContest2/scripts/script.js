@@ -75,48 +75,55 @@ async function signInUser(email, password) {
 
 // adding event listeners for user login and registration forms
 
-// set reg and login forms
-const regForm = document.getElementById('registerFormData');
-const loginForm = document.getElementById('loginFormData');
+if (window.location.href === "https://caption-contest-server-35n2.vercel.app/signup.html") {
 
-// what to do on reg submit
-function forRegSubmit(event) {
-    event.preventDefault(); // stops submit from redirection
+    // set reg and login forms
+    const regForm = document.getElementById('registerFormData');
+    const loginForm = document.getElementById('loginFormData');
 
-    // access the desired input through the var we setup
-    const username = regForm('usernameRegister').value;
-    const email = regForm('emailRegister').value;
-    const password = regForm('passwordRegister').value;
+    console.log(document.getElementById('registerFormData'));
+    console.log(document.getElementById('loginFormData'));
+
+    // what to do on reg submit
+    function forRegSubmit(event) {
+        event.preventDefault(); // stops submit from redirection
+
+        // access the desired input through the var we setup
+        const username = regForm('usernameRegister').value;
+        const email = regForm('emailRegister').value;
+        const password = regForm('passwordRegister').value;
 
 
-    // redirect user based on signup attempt
-    if (signUpRegister(username, email, password)) {
-        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-    } else {
-        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+        // redirect user based on signup attempt
+        if (signUpRegister(username, email, password)) {
+            window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+        } else {
+            window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+        }
     }
-}
 
-// what to do on login submit
-function forLoginSubmit(event) {
-    
-    event.preventDefault(); // stops submit from redirection
+    // what to do on login submit
+    function forLoginSubmit(event) {
+        
+        event.preventDefault(); // stops submit from redirection
 
-    // access the desired input through the var we setup
-    const email = loginForm('email').value;
-    const password = loginForm('password').value;
+        // access the desired input through the var we setup
+        const email = loginForm('email').value;
+        const password = loginForm('password').value;
 
-    // redirect user based on signup attempt
-    if (signInUser(email, password)) {
-        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-    } else {
-        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+        // redirect user based on signup attempt
+        if (signInUser(email, password)) {
+            window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+        } else {
+            window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+        }
     }
-}
 
-// event listeners below
-regForm.addEventListener("submit", forRegSubmit);
-loginForm.addEventListener("submit", forLoginSubmit);
+    // event listeners below
+    regForm.addEventListener("submit", forRegSubmit);
+    loginForm.addEventListener("submit", forLoginSubmit);
+} // only runs on the signup page script
+
 
 // onclick buttons for login/sign up
 /*
