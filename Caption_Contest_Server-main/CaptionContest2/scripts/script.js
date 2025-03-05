@@ -105,8 +105,8 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
                 window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
             }
         });
-        
-        loginForm.addEventListener("button", function(){
+
+        loginForm.addEventListener("button", async function() {
             
             const loginForm = document.getElementById('loginFormData');
 
