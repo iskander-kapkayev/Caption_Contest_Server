@@ -91,7 +91,7 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
             const email = regForm.elements.emailReg;
             const password = regForm.elements.passwordReg;
         
-            console.log(username);
+            console.log(username); //to print
             console.log(email);
             console.log(password);
         
