@@ -62,12 +62,6 @@ async function signUpRegister(username, email, password) {
 // create a way to sign in as a regular user
 async function signInUser(email, password) {
 
-    // set form item values
-    /*
-    const email = document.forms['login']['email'].value;
-    const password = document.forms['login']['password'].value;
-    */
-
     let URL = `https://caption-contest-server.vercel.app/signin?email=${email}&password=${password}`;
     let signInCheck = await fetchDBData(URL); // this will fetch a success or error for signing up
     (signInCheck) ? true:false;
@@ -78,9 +72,9 @@ async function signInUser(email, password) {
 if (window.location.href === "https://caption-contest-server-35n2.vercel.app/signup.html") {
 
     document.addEventListener("DOMContentLoaded", function() {
+        
         // set reg and login forms
         const regForm = document.getElementById('registerFormData');
-        const loginForm = document.getElementById('loginFormData');
 
         // event listeners below
         document.addEventListener("buttonReg", async function() {
@@ -106,6 +100,16 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
             }
         });
 
+    });
+} // only runs on the signup page script
+
+if (window.location.href === "https://caption-contest-server-35n2.vercel.app/login.html") {
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // set reg and login forms
+        const loginForm = document.getElementById('loginFormData');
+
+        // event listeners below
         document.addEventListener("buttonLogin", async function() {
             
             const loginForm = document.getElementById('loginFormData');
@@ -123,44 +127,7 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
 
         });
     });
-} // only runs on the signup page script
-
-
-// onclick buttons for login/sign up
-/*
-document.addEventListener("DOMContentLoaded", function() {
-
-    document.getElementById("regButton").onclick = function() {
-
-        // access the the username, email and pass
-        const username = document.getElementById['usernameReg'].value;
-        const email = document.getElementById['emailReg'].value;
-        const password = document.getElementById['passwordReg'].value;
-
-        // redirect user based on signup attempt
-        if (signUpRegister(username, email, password)) {
-            window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-        } else {
-            window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-        }
-    }
-
-    document.getElementById("loginButton").onclick = function() {
-
-        // access the email and pass
-        const email = document.getElementById['email'].value;
-        const password = document.getElementById['password'].value;
-    
-        // redirect user based on sign in attempt
-        if (signInUser(email, password)) {
-            window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-        } else {
-            window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-        }
-    }
-});
-
-*/
+} // only runs on the login page script
 
 /*
 This section is for comment switching.
