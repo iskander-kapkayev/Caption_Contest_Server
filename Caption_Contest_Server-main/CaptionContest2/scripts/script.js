@@ -73,9 +73,52 @@ async function signInUser(email, password) {
     (signInCheck) ? true:false;
 }
 
+/*
+Function for use by sign up page.
+*/
+
+// what to do on reg submit
+async function forRegSubmit(event) {
+    event.preventDefault(); // stops submit from redirection
+
+    // access the desired input through the var we setup
+    const username = regForm('usernameRegister').value;
+    const email = regForm('emailRegister').value;
+    const password = regForm('passwordRegister').value;
+
+
+    // redirect user based on signup attempt
+    if (await signUpRegister(username, email, password)) {
+        console.log("in sign up register")
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+    } else {
+        console.log("sign up register failed")
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+    }
+}
+
+// what to do on login submit
+async function forLoginSubmit(event) {
+    
+    event.preventDefault(); // stops submit from redirection
+
+    // access the desired input through the var we setup
+    const email = loginForm('email').value;
+    const password = loginForm('password').value;
+
+    // redirect user based on signup attempt
+    if (await signInUser(email, password)) {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/";
+    } else {
+        window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
+    }
+}
+
 // adding event listeners for user login and registration forms
 
 if (window.location.href === "https://caption-contest-server-35n2.vercel.app/signup.html") {
+
+    console.log("im in the webpage now");
 
     document.addEventListener("DOMContentLoaded", function() {
         // set reg and login forms
@@ -84,43 +127,6 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
 
         console.log(document.getElementById('registerFormData'));
         console.log(document.getElementById('loginFormData'));
-
-        // what to do on reg submit
-        async function forRegSubmit(event) {
-            event.preventDefault(); // stops submit from redirection
-
-            // access the desired input through the var we setup
-            const username = regForm('usernameRegister').value;
-            const email = regForm('emailRegister').value;
-            const password = regForm('passwordRegister').value;
-
-
-            // redirect user based on signup attempt
-            if (await signUpRegister(username, email, password)) {
-                console.log("in sign up register")
-                window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-            } else {
-                console.log("sign up register failed")
-                window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-            }
-        }
-
-        // what to do on login submit
-        async function forLoginSubmit(event) {
-            
-            event.preventDefault(); // stops submit from redirection
-
-            // access the desired input through the var we setup
-            const email = loginForm('email').value;
-            const password = loginForm('password').value;
-
-            // redirect user based on signup attempt
-            if (await signInUser(email, password)) {
-                window.location.href = "https://caption-contest-server-35n2.vercel.app/";
-            } else {
-                window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-            }
-        }
 
         // event listeners below
         if (regForm) {
