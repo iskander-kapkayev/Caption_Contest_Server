@@ -78,7 +78,7 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
         const regForm = document.getElementById('registerFormData');
 
         // event listeners below
-        regForm.addEventListener("buttonReg", async function() {
+        regForm.addEventListener("button", async function() {
 
             const regForm = document.getElementById('registerFormData');
 
@@ -111,7 +111,7 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/log
         const loginForm = document.getElementById('loginFormData');
 
         // event listeners below
-        loginForm.addEventListener("buttonLogin", async function() {
+        loginForm.addEventListener("button", async function() {
             
             const loginForm = document.getElementById('loginFormData');
 
