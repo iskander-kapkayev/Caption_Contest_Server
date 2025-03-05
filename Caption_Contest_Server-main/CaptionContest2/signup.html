@@ -7,38 +7,11 @@
   <!-- call in the javascript code to change between sign up and sign in -->
   <script src="/scripts/script.js"></script>
 
-  <title>Sign In</title>
+  <title>REGISTER</title>
 
 </head>
 
 <body>
-
-  <!-- Sign In Form -->
-  <div class="form-container">
-    <h2>LOGIN</h2>
-
-    <form id="loginFormData">
-
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-
-      <div class="form-group">
-        <button id="buttonLogin" type="button">SUBMIT</button>
-      </div>
-    </form>
-
-    <div class="link">
-      <p>Don't have an account? <a href="#" onclick="showRegisterForm()">REGISTER here</a></p>
-    </div>
-  </div>
-
 
   <!-- Registration Form (initially hidden) -->
   <div class="form-container" id="registerForm" style="display:none;">
@@ -67,7 +40,7 @@
     </form>
 
     <div class="link">
-      <p>Already have an account? <a href="#" onclick="showSignInForm()">LOGIN here</a></p>
+      <p>Already have an account? <a href="#" onclick="showLoginForm()">LOGIN here</a></p>
     </div>
   </div>
 
