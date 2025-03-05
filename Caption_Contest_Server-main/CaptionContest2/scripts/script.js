@@ -85,7 +85,7 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
     console.log(document.getElementById('loginFormData'));
 
     // what to do on reg submit
-    function forRegSubmit(event) {
+    async function forRegSubmit(event) {
         event.preventDefault(); // stops submit from redirection
 
         // access the desired input through the var we setup
@@ -95,7 +95,7 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
 
 
         // redirect user based on signup attempt
-        if (signUpRegister(username, email, password)) {
+        if (await signUpRegister(username, email, password)) {
             console.log("in sign up register")
             window.location.href = "https://caption-contest-server-35n2.vercel.app/";
         } else {
@@ -105,7 +105,7 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
     }
 
     // what to do on login submit
-    function forLoginSubmit(event) {
+    async function forLoginSubmit(event) {
         
         event.preventDefault(); // stops submit from redirection
 
@@ -114,7 +114,7 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
         const password = loginForm('password').value;
 
         // redirect user based on signup attempt
-        if (signInUser(email, password)) {
+        if (await signInUser(email, password)) {
             window.location.href = "https://caption-contest-server-35n2.vercel.app/";
         } else {
             window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
