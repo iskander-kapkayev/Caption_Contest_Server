@@ -189,18 +189,3 @@ function addComment() {
         alert('Please enter a comment before submitting.');
     }
 }
-
-/*
-The functions below let the user switch 
-between sign in and registration
-*/
-
-function showRegisterForm() {
-    // send user to registration form
-    window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
-}
-
-function showLoginForm() {
-    // send user to registration form
-    window.location.href = "https://caption-contest-server-35n2.vercel.app/login.html";
-}
