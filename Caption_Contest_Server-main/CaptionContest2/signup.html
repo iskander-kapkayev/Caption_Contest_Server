@@ -4,8 +4,8 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
 
-  <!-- calls in the javascript code to change between sign up and sign in -->
-  <script src="/scripts/user_script.js"></script>
+  <!-- call in the javascript code to change between sign up and sign in -->
+  <script src="/scripts/script.js"></script>
 
   <title>Sign In</title>
 
@@ -17,19 +17,22 @@
   <div class="form-container">
     <h2>LOGIN</h2>
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-    </div>
+    <form id="login">
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-    </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
 
-    <div class="form-group">
-      <button id="loginButton">SUBMIT</button>
-    </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">SUBMIT</button>
+      </div>
+    </form>
 
     <div class="link">
       <p>Don't have an account? <a href="#" onclick="showRegisterForm()">REGISTER here</a></p>
@@ -40,25 +43,28 @@
   <!-- Registration Form (initially hidden) -->
   <div class="form-container" id="registerForm" style="display:none;">
     <h2>REGISTER</h2>
-    
-    <div class="form-group">
-      <label for="usernameReg">Username</label>
-      <input type="text" id="usernameReg" name="usernameReg" value="thisusername" required>
-    </div>
+    <form id="registerFormData">
 
-    <div class="form-group">
-      <label for="emailReg">Email</label>
-      <input type="email" id="emailReg" name="emailReg" value="thisemail@gmail.com" required>
-    </div>
+      <div class="form-group">
+        <label for="usernameRegister">Username</label>
+        <input type="text" id="usernameRegister" name="usernameRegister" required>
+      </div>
 
-    <div class="form-group">
-      <label for="passwordReg">Password</label>
-      <input type="password" id="passwordReg" name="passwordReg" value="thispassword" required>
-    </div>
+      <div class="form-group">
+        <label for="emailRegister">Email</label>
+        <input type="email" id="emailRegister" name="emailRegister" required>
+      </div>
 
-    <div class="form-group">
-      <button id="regButton">SUBMIT</button>
-    </div>
+      <div class="form-group">
+        <label for="passwordRegister">Password</label>
+        <input type="password" id="passwordRegister" name="passwordRegister" required>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">SUBMIT</button>
+      </div>
+
+    </form>
 
     <div class="link">
       <p>Already have an account? <a href="#" onclick="showSignInForm()">LOGIN here</a></p>
