@@ -107,7 +107,8 @@ console.log(document.getElementById("regButton"));
 document.addEventListener("DOMContentLoaded", function() {
 
     console.log("inside function");
-
+    console.log(document.getElementById("regButton"));
+    
     document.getElementById("regButton").onclick = function() {
         
 
