@@ -108,10 +108,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     console.log("inside function");
     console.log(document.getElementById("regButton"));
-    
-    document.getElementById("regButton").onclick = function() {
-        
 
+    document.getElementById("regButton").onclick = async function() {
+        
 
         // access the the username, email and pass
         const username = document.getElementById("usernameReg").value;
@@ -119,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const password = document.getElementById("passwordReg").value;
 
         // redirect user based on signup attempt
-        if (signUpRegister(username, email, password)) {
+        if (await signUpRegister(username, email, password)) {
             window.location.href = "https://caption-contest-server-35n2.vercel.app/";
         } else {
             window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
@@ -129,8 +128,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("loginButton").onclick = function() {
 
         // access the email and pass
-        const email = document.getElementById["email"].value;
-        const password = document.getElementById["password"].value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
     
         // redirect user based on sign in attempt
         if (signInUser(email, password)) {
