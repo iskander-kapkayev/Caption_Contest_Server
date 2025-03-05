@@ -70,6 +70,7 @@ async function signInUser(email, password) {
 // adding event listeners for user login and registration forms
 
 if (window.location.href === "https://caption-contest-server-35n2.vercel.app/signup.html") {
+    console.log("im on the reg page");
 
     document.addEventListener("DOMContentLoaded", function() {
         console.log("im in DomContent");
