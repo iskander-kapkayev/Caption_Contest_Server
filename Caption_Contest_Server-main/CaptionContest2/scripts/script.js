@@ -136,7 +136,7 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
             loginForm.addEventListener("button", forLoginSubmit);
         }
 
-    }
+    });
 } // only runs on the signup page script
 
 
