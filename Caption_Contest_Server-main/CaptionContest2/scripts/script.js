@@ -76,17 +76,17 @@ async function signInUser(email, password) {
 // adding event listeners for user login and registration forms
 
 // set reg and login forms
-const regForm = document.getElementById['registerFormData'];
-const loginForm = document.getElementById['login'];
+const regForm = document.getElementById('registerFormData');
+const loginForm = document.getElementById('login');
 
 // what to do on reg submit
 function forRegSubmit(event) {
     event.preventDefault(); // stops submit from redirection
 
     // access the desired input through the var we setup
-    const username = regForm['usernameRegister'].value;
-    const email = regForm['emailRegister'].value;
-    const password = regForm['passwordRegister'].value;
+    const username = regForm('usernameRegister').value;
+    const email = regForm('emailRegister').value;
+    const password = regForm('passwordRegister').value;
 
 
     // redirect user based on signup attempt
@@ -103,8 +103,8 @@ function forLoginSubmit(event) {
     event.preventDefault(); // stops submit from redirection
 
     // access the desired input through the var we setup
-    const email = loginForm['email'].value;
-    const password = loginForm['password'].value;
+    const email = loginForm('email').value;
+    const password = loginForm('password').value;
 
     // redirect user based on signup attempt
     if (signInUser(email, password)) {
