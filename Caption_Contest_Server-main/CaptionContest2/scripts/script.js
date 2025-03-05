@@ -120,7 +120,7 @@ loginForm.addEventListener("submit", forLoginSubmit);
 */
 
 // onclick buttons for login/sign up
-
+/*
 document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("regButton").onclick = function() {
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-
+*/
 
 /*
 This section is for comment switching.
