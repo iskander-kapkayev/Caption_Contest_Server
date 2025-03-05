@@ -80,7 +80,7 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
         // event listeners below
         regForm.addEventListener("submit", async function() {
             
-            event.preventDefault();
+            event.preventDefault(); // prevents redirection
 
             const regForm = document.getElementById('registerFormData');
 
@@ -91,7 +91,9 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
             const email = regForm.elements.emailReg;
             const password = regForm.elements.passwordReg;
         
-            console.log(username, email, password);
+            console.log(username);
+            console.log(email);
+            console.log(password);
         
             // redirect user based on signup attempt
             /*
@@ -123,12 +125,13 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/log
             const password = loginForm.elements.password;
 
             // redirect user based on signup attempt
-            
+            /*
             if (await signInUser(email, password)) {
                 window.location.href = "https://caption-contest-server-35n2.vercel.app/";
             } else {
                 window.location.href = "https://caption-contest-server-35n2.vercel.app/signup.html";
             }
+            */
 
         });
     });
