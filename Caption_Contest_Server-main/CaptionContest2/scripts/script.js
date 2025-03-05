@@ -72,7 +72,7 @@ async function signInUser(email, password) {
 if (window.location.href === "https://caption-contest-server-35n2.vercel.app/signup.html") {
     console.log("im on the reg page");
 
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", async function() {
         console.log("im in DomContent");
         // set reg and login forms
         const regForm = document.getElementById('registerFormData');
@@ -106,7 +106,7 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
 
 if (window.location.href === "https://caption-contest-server-35n2.vercel.app/login.html") {
 
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", async function() {
         // set reg and login forms
         const loginForm = document.getElementById('loginFormData');
 
