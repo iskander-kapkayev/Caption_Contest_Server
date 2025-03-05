@@ -120,8 +120,12 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
     }
 
     // event listeners below
-    regForm.addEventListener("submit", forRegSubmit);
-    loginForm.addEventListener("submit", forLoginSubmit);
+    if (regForm) {
+        regForm.addEventListener("submitReg", forRegSubmit);
+    }
+    if (loginForm) {
+        loginForm.addEventListener("submitLogin", forLoginSubmit);
+    }
 } // only runs on the signup page script
 
 
