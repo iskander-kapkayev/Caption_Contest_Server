@@ -78,8 +78,10 @@ if (window.location.href === "https://caption-contest-server-35n2.vercel.app/sig
         const regForm = document.getElementById('registerFormData');
 
         // event listeners below
-        regForm.addEventListener("button", async function() {
-
+        regForm.addEventListener("submit", async function() {
+            
+            event.preventDefault();
+            
             const regForm = document.getElementById('registerFormData');
 
             console.log("im in the forRegFunction");
